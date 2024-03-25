@@ -8,13 +8,13 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
 spec:
   selector:
-    app: frontend
+    app: web01
   type: LoadBalancer
   ports:
   - name: web01-service-port
     protocol: TCP
     port: 443
-    targetPort: http
+    targetPort: webport
     # If you set the `spec.type` field to `NodePort` and you want a specific port number,
     # you can specify a value in the `spec.ports[*].nodePort` field.
     # nodePort: 30001

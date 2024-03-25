@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  web01-deployment
+  labels:
+    app:  web01
+spec:
+  selector:
+    matchLabels:
+      app: web01
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app:  web01
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name:  web01
+        image:  saiemkhan929/web01
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort:  80
+          name:  webport
+   
