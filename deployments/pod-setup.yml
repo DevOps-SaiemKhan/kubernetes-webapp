@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "web01"
+  labels:
+    app: frontend
+spec:
+  containers:
+  - name: web01
+    image: "saiemkhan929/web01"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+    ports:
+    - containerPort:  80
+      name:  http
